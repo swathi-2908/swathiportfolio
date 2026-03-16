@@ -25,75 +25,36 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Mono', monospace;
-    font-size: 14px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
+  body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; font-size: 14px; line-height: 1.7; overflow-x: hidden; }
   ::-webkit-scrollbar { width: 3px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--blue); }
 
   body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 60px 60px;
-    opacity: 0.35;
-    pointer-events: none;
-    z-index: 0;
+    content: ''; position: fixed; inset: 0;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px; opacity: 0.35; pointer-events: none; z-index: 0;
   }
 
-  /* NAV */
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
     padding: 20px 60px;
     background: linear-gradient(180deg, #050810 60%, transparent 100%);
     backdrop-filter: blur(10px);
   }
   .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px; color: var(--blue); letter-spacing: 0.15em; text-transform: uppercase; }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a { color: #b8c8e8; text-decoration: none; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover { color: var(--blue); }
-  .nav-status { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; }
+  .nav-status { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-dim); }
   .status-dot { width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; animation: pulse 2s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.7); } }
 
-  /* HERO */
-  .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 120px 60px 60px;
-    z-index: 1;
-    overflow: hidden;
-  }
-  .hero-bg-text {
-    position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 22vw;
-    color: transparent; -webkit-text-stroke: 1px var(--border-bright);
-    line-height: 1; pointer-events: none; user-select: none; opacity: 0.5;
-  }
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 120px 60px 60px; z-index: 1; overflow: hidden; }
+  .hero-bg-text { position: absolute; right: -20px; top: 50%; transform: translateY(-50%); font-family: 'Syne', sans-serif; font-weight: 800; font-size: 22vw; color: transparent; -webkit-text-stroke: 1px var(--border-bright); line-height: 1; pointer-events: none; user-select: none; opacity: 0.5; }
   .hero-content { max-width: 760px; z-index: 2; }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--blue); margin-bottom: 28px;
-  }
+  .hero-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--blue); margin-bottom: 28px; }
   .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--blue); }
   h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(42px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.02em; color: var(--text); margin-bottom: 8px; }
   h1 .accent { color: var(--blue); font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; }
@@ -102,81 +63,23 @@
   .hero-bio span { color: var(--cyan); }
   .hero-bio strong { color: var(--text); font-weight: 500; }
   .hero-ctas { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
-    background: var(--blue); color: var(--bg);
-    font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px;
-    letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none;
-    transition: all 0.2s;
-    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-  }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: var(--blue); color: var(--bg); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px)); }
   .btn-primary:hover { background: #80baff; transform: translateY(-2px); box-shadow: 0 8px 32px var(--blue-dim); }
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px;
-    border: 1px solid var(--border-bright); color: var(--text-dim);
-    font-family: 'Syne', sans-serif; font-weight: 600; font-size: 11px;
-    letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: all 0.2s;
-  }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; border: 1px solid var(--border-bright); color: var(--text-dim); font-family: 'Syne', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
   .btn-ghost:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
 
-  /* CORNER DECO */
   .corner-deco { position: absolute; width: 60px; height: 60px; pointer-events: none; }
   .corner-deco.tl { top: 20px; left: 20px; border-top: 1px solid var(--blue); border-left: 1px solid var(--blue); }
   .corner-deco.tr { top: 20px; right: 20px; border-top: 1px solid var(--blue); border-right: 1px solid var(--blue); }
   .corner-deco.bl { bottom: 20px; left: 20px; border-bottom: 1px solid var(--blue); border-left: 1px solid var(--blue); }
   .corner-deco.br { bottom: 20px; right: 20px; border-bottom: 1px solid var(--blue); border-right: 1px solid var(--blue); }
 
-  /* STATS BAR */
-  .stats-bar {
-    position: relative; z-index: 1;
-    border-top: 1px solid var(--border-bright); border-bottom: 1px solid var(--border-bright);
-    display: grid; grid-template-columns: repeat(4, 1fr);
-  }
-  .stat-item { padding: 28px 40px; border-right: 1px solid var(--border-bright); position: relative; overflow: hidden; transition: background 0.3s; }
-  .stat-item:last-child { border-right: none; }
-  .stat-item:hover { background: var(--bg2); }
-  .stat-item::before { content: ''; position: absolute; bottom: 0; left: 0; height: 2px; width: 0; background: var(--blue); transition: width 0.4s ease; }
-  .stat-item:hover::before { width: 100%; }
-  .stat-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 32px; color: var(--blue); line-height: 1; margin-bottom: 4px; }
-  .stat-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); }
-
-  /* SECTIONS */
   section { position: relative; z-index: 1; padding: 100px 60px; }
   .section-header { display: flex; align-items: center; gap: 20px; margin-bottom: 60px; }
   .section-num { font-size: 11px; letter-spacing: 0.2em; color: var(--blue); }
   .section-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(28px, 4vw, 44px); color: var(--text); letter-spacing: -0.02em; }
   .section-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border-bright), transparent); }
 
-  /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border-bright); }
-  .skill-category { background: var(--bg); padding: 40px; transition: background 0.2s; }
-  .skill-category:hover { background: var(--bg2); }
-  .skill-cat-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--blue); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
-  .skill-cat-label::after { content: ''; flex: 1; height: 1px; background: var(--border-bright); }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .skill-tag { padding: 6px 14px; border: 1px solid var(--border-bright); font-size: 11px; letter-spacing: 0.1em; color: #c8d4ee; transition: all 0.2s; }
-  .skill-tag:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-glow); }
-  .skill-tag.fintech { border-color: #00e5d433; color: var(--cyan); }
-
-  /* PROJECTS */
-  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border-bright); }
-  .project-card { background: var(--bg); padding: 44px; position: relative; overflow: hidden; transition: background 0.3s; }
-  .project-card:hover { background: var(--bg2); }
-  .project-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-  .project-card.wide { grid-column: 1 / -1; }
-  .project-card::after { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--blue); transition: height 0.4s ease; }
-  .project-card:hover::after { height: 100%; }
-  .project-num { font-size: 10px; letter-spacing: 0.3em; color: var(--text-muted); margin-bottom: 20px; }
-  .project-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 20px; color: var(--text); line-height: 1.3; margin-bottom: 16px; letter-spacing: -0.01em; }
-  .project-domain { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); background: var(--blue-glow); padding: 4px 12px; margin-bottom: 20px; border: 1px solid var(--blue-dim); }
-  .project-desc { font-size: 12px; color: #c8d4ee; line-height: 1.8; margin-bottom: 28px; }
-  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tech-pill { font-size: 10px; padding: 3px 10px; border: 1px solid var(--border-bright); color: #9aaed0; letter-spacing: 0.1em; }
-  .project-highlights { list-style: none; }
-  .project-highlights li { font-size: 12px; color: #c8d4ee; padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
-  .project-highlights li::before { content: '→'; color: var(--blue); flex-shrink: 0; margin-top: 1px; }
-
-  /* TIMELINE */
   .timeline { position: relative; padding-left: 40px; }
   .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, var(--blue), var(--border-bright), transparent); }
   .timeline-item { position: relative; margin-bottom: 56px; }
@@ -188,7 +91,33 @@
   .timeline-points li { font-size: 12px; color: #c8d4ee; padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; }
   .timeline-points li::before { content: '▸'; color: var(--cyan); flex-shrink: 0; }
 
-  /* FINTECH */
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border-bright); }
+  .project-card { background: var(--bg); padding: 44px; position: relative; overflow: hidden; transition: background 0.3s; }
+  .project-card:hover { background: var(--bg2); }
+  .project-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .project-card.wide { grid-column: 1 / -1; }
+  .project-card::after { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--blue); transition: height 0.4s ease; }
+  .project-card:hover::after { height: 100%; }
+  .project-num { font-size: 10px; letter-spacing: 0.3em; color: var(--text-muted); margin-bottom: 20px; }
+  .project-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 20px; color: var(--text); line-height: 1.3; margin-bottom: 16px; }
+  .project-domain { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); background: var(--blue-glow); padding: 4px 12px; margin-bottom: 20px; border: 1px solid var(--blue-dim); }
+  .project-desc { font-size: 12px; color: #c8d4ee; line-height: 1.8; margin-bottom: 28px; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tech-pill { font-size: 10px; padding: 3px 10px; border: 1px solid var(--border-bright); color: #9aaed0; letter-spacing: 0.1em; }
+  .project-highlights { list-style: none; }
+  .project-highlights li { font-size: 12px; color: #c8d4ee; padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
+  .project-highlights li::before { content: '→'; color: var(--blue); flex-shrink: 0; margin-top: 1px; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border-bright); }
+  .skill-category { background: var(--bg); padding: 40px; transition: background 0.2s; }
+  .skill-category:hover { background: var(--bg2); }
+  .skill-cat-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--blue); margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+  .skill-cat-label::after { content: ''; flex: 1; height: 1px; background: var(--border-bright); }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag { padding: 6px 14px; border: 1px solid var(--border-bright); font-size: 11px; letter-spacing: 0.1em; color: #c8d4ee; transition: all 0.2s; }
+  .skill-tag:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-glow); }
+  .skill-tag.fintech { border-color: #00e5d433; color: var(--cyan); }
+
   .fintech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border-bright); }
   .fintech-card { background: var(--bg2); padding: 36px; transition: background 0.3s; position: relative; overflow: hidden; }
   .fintech-card:hover { background: var(--bg3); }
@@ -198,7 +127,6 @@
   .fintech-card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); margin-bottom: 12px; }
   .fintech-card-text { font-size: 12px; color: #c8d4ee; line-height: 1.8; }
 
-  /* CERTS */
   .certs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
   .cert-group-title { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--blue); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-bright); }
   .cert-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
@@ -208,19 +136,8 @@
   .cert-icon.tech { background: var(--cyan-dim); border-color: #00e5d433; color: var(--cyan); }
   .cert-name { font-size: 12px; color: #c8d4ee; line-height: 1.4; }
 
-  /* DIVIDER */
   .divider { display: flex; align-items: center; gap: 16px; color: var(--text-muted); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin: 8px 0 40px; }
   .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border-bright); }
-
-  /* CONTACT */
-  .contact-section { text-align: center; }
-  .contact-tagline { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: clamp(28px, 4vw, 52px); color: var(--text); margin-bottom: 48px; line-height: 1.3; }
-  .contact-tagline span { color: var(--blue); }
-  .contact-links { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-  .contact-link { display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; transition: transform 0.2s; }
-  .contact-link:hover { transform: translateY(-4px); }
-  .contact-link-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); }
-  .contact-link-value { font-size: 13px; color: var(--blue); }
 
   footer { position: relative; z-index: 1; padding: 24px 60px; border-top: 1px solid var(--border-bright); display: flex; justify-content: space-between; align-items: center; font-size: 10px; letter-spacing: 0.15em; color: var(--text-muted); text-transform: uppercase; }
 
@@ -229,7 +146,6 @@
     .nav-links { display: none; }
     section { padding: 60px 24px; }
     .hero { padding: 100px 24px 60px; }
-    .stats-bar { grid-template-columns: repeat(2, 1fr); }
     .skills-grid, .projects-grid, .certs-grid, .fintech-grid { grid-template-columns: 1fr; }
     .project-card.featured { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
@@ -242,16 +158,17 @@
   <div class="nav-logo">SWATHI//Portfolio</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#activities">Activities</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#certifications">Certs</a></li>
-  
   </ul>
-
+  <div class="nav-status"><div class="status-dot"></div>Available · Singapore</div>
 </nav>
 
-<!-- HERO -->
+<!-- 1. HERO / ABOUT -->
 <section class="hero" id="about">
   <div class="corner-deco tl"></div><div class="corner-deco tr"></div>
   <div class="corner-deco bl"></div><div class="corner-deco br"></div>
@@ -261,32 +178,254 @@
     <h1>Swathi<br><span class="accent">Muraliganesh</span></h1>
     <div class="hero-subtitle">Big Data & Analytics Graduate → Applied Computing (Fintech)</div>
     <div class="hero-bio">
-      I'm a <strong>Big Data & Analytics graduate from Temasek Polytechnic</strong> with hands-on experience in data pipelines, BI dashboards, machine learning, and financial analytics. Through projects like my <span>OCBC Bank customer satisfaction analysis</span> and a <span>cruise company revenue model</span>, I've seen how data reshapes financial decision-making at scale.<br><br>
+      I'm a <strong>Big Data & Analytics graduate from Temasek Polytechnic</strong> with hands-on experience in data pipelines, BI dashboards, machine learning, and financial analytics. I'm drawn to the intersection of data and finance — where the right insight at the right time can change how people make decisions.<br><br>
       My <strong>CFI certifications</strong> in Financial Modelling and participation in the <strong>UWS × Citibank STEM First FinTech programme</strong> reflect my deliberate move toward Fintech — where I want to build systems that make financial services smarter, fairer, and more accessible.
     </div>
     <div class="hero-ctas">
       <a href="#projects" class="btn-primary">View Projects ↓</a>
-      <a href="#contact" class="btn-ghost">Get In Touch</a>
+      <a href="#experience" class="btn-ghost">My Experience</a>
     </div>
     <div style="margin-top:32px;display:flex;gap:32px;flex-wrap:wrap;align-items:center;padding-top:24px;border-top:1px solid var(--border-bright);">
-      <a href="/cdn-cgi/l/email-protection#52212533263a3b62606261626412353f333b3e7c313d3f" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-dim);font-size:12px;transition:color 0.2s;" onmouseover="this.style.color='#4d9fff'" onmouseout="this.style.color='#c8d4ee'">
-        <span style="width:28px;height:28px;border:1px solid var(--border-bright);display:flex;align-items:center;justify-content:center;font-size:13px;">✉</span>
-        <span class="__cf_email__" data-cfemail="25565244514d4c151715161513654248444c490b464a48">[email&#160;protected]</span>
+      <a href="mailto:swathi020306@gmail.com" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#c8d4ee;font-size:12px;transition:color 0.2s;" onmouseover="this.style.color='#4d9fff'" onmouseout="this.style.color='#c8d4ee'">
+        <span style="width:28px;height:28px;border:1px solid var(--border-bright);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--blue);">✉</span>
+        swathi020306@gmail.com
       </a>
-      <a href="https://www.linkedin.com/in/muraliganesh-swathi-814964281" target="_blank" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text-dim);font-size:12px;transition:color 0.2s;" onmouseover="this.style.color='#4d9fff'" onmouseout="this.style.color='#c8d4ee'">
-        <span style="width:28px;height:28px;border:1px solid var(--border-bright);display:flex;align-items:center;justify-content:center;font-size:13px;">in</span>
+      <a href="https://www.linkedin.com/in/muraliganesh-swathi-814964281" target="_blank" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#c8d4ee;font-size:12px;transition:color 0.2s;" onmouseover="this.style.color='#4d9fff'" onmouseout="this.style.color='#c8d4ee'">
+        <span style="width:28px;height:28px;border:1px solid var(--border-bright);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--blue);">in</span>
         linkedin.com/in/muraliganesh-swathi
       </a>
     </div>
   </div>
 </section>
 
-
-
-<!-- SKILLS -->
-<section id="skills">
+<!-- 2. EDUCATION -->
+<section id="education" style="background:var(--bg2);">
   <div class="section-header">
     <span class="section-num">01</span>
+    <h2 class="section-title">Education</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2023 — 2026</div>
+      <div class="timeline-role">Diploma in Big Data & Analytics</div>
+      <div class="timeline-company">Temasek Polytechnic</div>
+      <ul class="timeline-points">
+        <li>Data Visualisation and Analytics</li>
+        <li>Database Application Development</li>
+        <li>Data Structures and Algorithms</li>
+        <li>Data Science Essentials</li>
+        <li>Data Warehousing and Business Intelligence</li>
+        <li>Data Engineering in Cloud</li>
+        <li>Data Management and Business Analytics</li>
+        <li>Machine Learning and Decision Making</li>
+        <li>Text and Social Media Analytics</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2019 — 2022</div>
+      <div class="timeline-role">GCE 'O' Level Certificate</div>
+      <div class="timeline-company">Saint Anthony's Canossian Secondary School</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Mar 2026 — Jun 2026</div>
+      <div class="timeline-role">Senior Administrative Officer</div>
+      <div class="timeline-company">Singapore University of Technology and Design (SUTD) · CDC Dept, Career Coach Team</div>
+      <ul class="timeline-points">
+        <li>Analyse attendance data for students enrolled in UPOP modules to monitor participation and identify non-attendance trends</li>
+        <li>Automate previously manual Excel-based processes, improving data reliability and reducing administrative overhead for the team</li>
+        <li>Maintain and manage attendance records to support the reporting needs of the Career Coach team</li>
+        <li>Handle student enquiries related to UPOP modules, attendance requirements, and scheduling in a timely manner</li>
+        <li>Support the smooth delivery of career development programmes through coordination and administrative oversight</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">Sep 2025 — Feb 2026 · 6 Months</div>
+      <div class="timeline-role">BI Qlik Report Developer (Intern)</div>
+      <div class="timeline-company">Singapore University of Technology and Design (SUTD) · Career Development Centre</div>
+      <ul class="timeline-points">
+        <li>Designed and developed interactive Qlik dashboards to support institutional planning and performance tracking at SUTD</li>
+        <li>Worked directly with stakeholders to understand their reporting needs and translated those requirements into clear, actionable BI solutions</li>
+        <li>Managed the full dashboard delivery lifecycle — from data exploration and ETL through to UAT, deployment, and documentation</li>
+        <li>Applied data storytelling principles to present insights in a way that non-technical stakeholders could act on</li>
+        <li>Conducted system integration testing and maintained version control across multiple dashboard iterations</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- 4. ACTIVITIES & ACHIEVEMENTS -->
+<section id="activities" style="background:var(--bg2);">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Activities & Achievements</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <!-- UWS Fintech Programme -->
+  <div style="margin-bottom:60px;">
+    <div style="font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border-bright);">🏦 Industry Programme</div>
+    <div style="background:var(--bg);border:1px solid var(--border-bright);padding:36px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:var(--blue);"></div>
+      <div style="padding-left:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:16px;">
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:var(--text);margin-bottom:6px;">STEM First FinTech Programme</div>
+            <div style="font-size:12px;color:#b8c8e8;letter-spacing:0.05em;">United Women Singapore (UWS) × Citibank</div>
+          </div>
+          <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);background:var(--blue-glow);border:1px solid var(--blue-dim);padding:6px 14px;white-space:nowrap;">2024 · 6 Months</div>
+        </div>
+        <p style="font-size:12px;color:#c8d4ee;line-height:1.8;margin-bottom:20px;">A competitive 6-month industry programme run in collaboration with Citibank mentors, where I explored the <strong style="color:var(--text);">ABCDE of Fintech</strong> — AI, Blockchain, Cybersecurity, Data Analytics, and E-commerce — through a Design Thinking framework. This programme deepened my curiosity about Fintech and cemented my decision to pursue it as a career direction.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+          <div style="padding:12px 16px;border:1px solid var(--border-bright);font-size:11px;color:#c8d4ee;">▸ Worked on real Fintech challenges under Citibank mentorship</div>
+          <div style="padding:12px 16px;border:1px solid var(--border-bright);font-size:11px;color:#c8d4ee;">▸ Applied Design Thinking to prototype financial solutions</div>
+          <div style="padding:12px 16px;border:1px solid var(--border-bright);font-size:11px;color:#c8d4ee;">▸ Balanced technical feasibility with regulatory considerations</div>
+          <div style="padding:12px 16px;border:1px solid var(--border-bright);font-size:11px;color:#c8d4ee;">▸ Presented solutions under time pressure to industry judges</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CCA -->
+  <div style="font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;padding-bottom:10px;border-bottom:1px solid var(--border-bright);">🏆 CCA Record — Overall Grade: <span style="color:var(--cyan);">Excellent · 160 Points</span></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border-bright);margin-bottom:32px;">
+
+    <div style="background:var(--bg);padding:32px;">
+      <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">🏅 Achievements</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="padding:10px 14px;border:1px solid var(--border-bright);font-size:12px;color:#c8d4ee;">Call for Viz — Changi General Hospital<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">Data Visualisation Competition · 2025</span></div>
+        <div style="padding:10px 14px;border:1px solid var(--border-bright);font-size:12px;color:#c8d4ee;">NTU GAIP Insurance Case Competition<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2024</span></div>
+        <div style="padding:10px 14px;border:1px solid var(--border-bright);font-size:12px;color:#c8d4ee;">National Cashflow Competition<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2024</span></div>
+        <div style="padding:10px 14px;border:1px solid var(--blue-dim);background:var(--blue-glow);font-size:12px;color:var(--cyan);">UWS Fintech Programme<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2024</span></div>
+      </div>
+    </div>
+
+    <div style="background:var(--bg);padding:32px;">
+      <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">📚 Enrichment</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">MP Pitching Workshop: Art of TECHx Presentation<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2025</span></div>
+        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">BDA Flex Week — Essential Tech-Skills for MP<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2025</span></div>
+        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">Flex Week Talk — Disability Awareness<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2024</span></div>
+        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">IIT × ASChill 2024<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2024</span></div>
+        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">Resume &amp; Interview Workshop<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2024</span></div>
+        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">Jobstreet TechConnect 2023<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2023</span></div>
+        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">TP Community Service Club AGM 2023<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2023</span></div>
+        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">TPOF 2023 Webinar<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2023</span></div>
+      </div>
+    </div>
+
+    <div style="background:var(--bg);padding:32px;">
+      <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">🤝 Service</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px;">
+        <div style="padding:10px 14px;border:1px solid var(--border-bright);font-size:12px;color:#c8d4ee;">Food From the Heart — Toy Buffet<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">Event Helper · 2024</span></div>
+        <div style="padding:10px 14px;border:1px solid var(--border-bright);font-size:12px;color:#c8d4ee;">CCN 2023<span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">Event Official · 2023</span></div>
+      </div>
+      <div style="padding:20px;border:1px solid var(--blue-dim);background:var(--blue-glow);text-align:center;">
+        <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">Overall CCA Grade</div>
+        <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:32px;color:var(--cyan);">Excellent</div>
+        <div style="font-size:11px;color:#c8d4ee;margin-top:4px;">160 Total Points</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 5. PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Projects</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card featured">
+      <div>
+        <div class="project-num">PROJECT 01 · FEATURED</div>
+        <div class="project-domain">🏦 Financial Services · Customer Analytics</div>
+        <h3 class="project-title">Customer Satisfaction Analysis — OCBC Bank</h3>
+        <p class="project-desc">I analysed walk-in and call log datasets for OCBC Bank to uncover what was driving customer dissatisfaction. Using Tableau, I built dashboards that revealed service channel performance gaps and showed how interaction duration correlated with satisfaction scores — turning raw data into recommendations a real bank could act on.</p>
+        <p class="project-desc" style="color:var(--cyan);font-size:11px;border-left:2px solid var(--cyan);padding-left:12px;margin-top:-10px;">Fintech Relevance: This is the analytical foundation that AI-driven customer experience systems in banks are built upon — I did it manually, and I want to learn how to build the systems that do it at scale.</p>
+        <div class="project-tech">
+          <span class="tech-pill">Tableau</span><span class="tech-pill">EDA</span><span class="tech-pill">Data Profiling</span><span class="tech-pill">Statistical Analysis</span><span class="tech-pill">Dashboard Design</span>
+        </div>
+      </div>
+      <div>
+        <ul class="project-highlights">
+          <li>Integrated and profiled walk-in vs call log datasets to ensure data quality before any analysis began</li>
+          <li>Built scatter plots and bar charts to compare satisfaction ratings across different service channels</li>
+          <li>Identified interaction duration as the strongest driver of satisfaction — an insight with direct operational value</li>
+          <li>Recommended service process changes to reduce friction and improve customer retention</li>
+          <li>Presented findings in a way that connected the data directly to business outcomes the bank cared about</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">PROJECT 02</div>
+      <div class="project-domain">📈 Revenue Optimisation · ML</div>
+      <h3 class="project-title">Revenue Management — Cruise Company</h3>
+      <p class="project-desc">I applied the full machine learning pipeline to a cruise company's booking data — cleaning messy records, running exploratory analysis, building regression and classification models, and using k-means clustering to segment customers. The goal was to generate data-driven recommendations that could directly improve revenue strategy.</p>
+      <div class="project-tech">
+        <span class="tech-pill">Python</span><span class="tech-pill">Pandas</span><span class="tech-pill">Scikit-learn</span><span class="tech-pill">K-Means</span><span class="tech-pill">Regression</span><span class="tech-pill">Classification</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">PROJECT 03</div>
+      <div class="project-domain">🗄️ Data Architecture · ETL</div>
+      <h3 class="project-title">Hotel Chain Data Warehouse & BI</h3>
+      <p class="project-desc">I designed a star schema data warehouse in MySQL, built ETL pipelines in Alteryx to pull and clean data from multiple sources, and created BI visualisations that surfaced occupancy trends and cross-sell opportunities. Building this end-to-end gave me a solid understanding of how enterprise data infrastructure works — the same foundations used in core banking systems.</p>
+      <div class="project-tech">
+        <span class="tech-pill">MySQL</span><span class="tech-pill">Alteryx</span><span class="tech-pill">Star Schema</span><span class="tech-pill">ETL Design</span><span class="tech-pill">BI Visualisation</span>
+      </div>
+    </div>
+
+    <div class="project-card wide">
+      <div class="project-num">PROJECT 04</div>
+      <div class="project-domain">📊 Enterprise BI · Stakeholder Delivery</div>
+      <h3 class="project-title">SBS Learning Analytics Dashboard</h3>
+      <p class="project-desc">I designed two interactive Qlik dashboards for Singapore Bus Services' training platform — a Trainer View showing class performance and coaching insights, and an Admin View tracking platform-wide KPIs and pass/fail rates. This was a real stakeholder delivery — I gathered requirements, built iteratively, managed version control, and supported UAT. It was the project that taught me what it actually means to build something for someone else to rely on.</p>
+      <div class="project-tech">
+        <span class="tech-pill">Qlik Sense</span><span class="tech-pill">Dynamic Filtering</span><span class="tech-pill">KPI Design</span><span class="tech-pill">UAT</span><span class="tech-pill">Version Control</span>
+      </div>
+    </div>
+
+    <div class="project-card wide">
+      <div class="project-num">PROJECT 05</div>
+      <div class="project-domain">🧠 NLP · Text & Social Media Analytics</div>
+      <h3 class="project-title">Text & Social Media Analytics — SAS & Python</h3>
+      <p class="project-desc">I applied NLP techniques — topic modelling, sentiment analysis, and text clustering — to social media datasets using both SAS and Python. Extracting patterns from unstructured text is a genuinely different challenge from structured data analysis, and this project stretched me in a new direction. In Fintech, these same techniques are used to analyse customer feedback, monitor financial news, and detect sentiment signals in the market.</p>
+      <div class="project-tech">
+        <span class="tech-pill">SAS</span><span class="tech-pill">Python</span><span class="tech-pill">Topic Modelling</span><span class="tech-pill">Sentiment Analysis</span><span class="tech-pill">Text Clustering</span><span class="tech-pill">NLP</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 6. SKILLS -->
+<section id="skills" style="background:var(--bg2);">
+  <div class="section-header">
+    <span class="section-num">05</span>
     <h2 class="section-title">Technical Stack</h2>
     <div class="section-line"></div>
   </div>
@@ -329,136 +468,10 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" style="background:var(--bg2);">
+<!-- 7. FINTECH READINESS -->
+<section>
   <div class="section-header">
-    <span class="section-num">02</span>
-    <h2 class="section-title">Projects</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="projects-grid">
-
-    <div class="project-card featured">
-      <div>
-        <div class="project-num">PROJECT 01 · FEATURED</div>
-        <div class="project-domain">🏦 Financial Services · Customer Analytics</div>
-        <h3 class="project-title">Customer Satisfaction Analysis — OCBC Bank</h3>
-        <p class="project-desc">Analysed walk-in and call log datasets for OCBC Bank to uncover drivers of customer dissatisfaction. Built dashboards revealing service channel performance gaps and interaction-duration correlations with satisfaction scores.</p>
-        <p class="project-desc" style="color:var(--cyan);font-size:11px;border-left:2px solid var(--cyan);padding-left:12px;margin-top:-10px;">Fintech Relevance: Mirrors how AI systems in banks automate customer experience insights at scale — this is the analytical foundation those systems are built on.</p>
-        <div class="project-tech">
-          <span class="tech-pill">Tableau</span><span class="tech-pill">EDA</span><span class="tech-pill">Data Profiling</span><span class="tech-pill">Statistical Analysis</span><span class="tech-pill">Dashboard Design</span>
-        </div>
-      </div>
-      <div>
-        <ul class="project-highlights">
-          <li>Integrated and profiled walk-in vs call log datasets ensuring data quality and consistency</li>
-          <li>Built bar charts and scatter plots comparing satisfaction ratings across service channels</li>
-          <li>Identified interaction duration as a key satisfaction driver — a direct operational insight</li>
-          <li>Recommended service process redesigns to improve NPS and reduce channel friction</li>
-          <li>Demonstrated how customer analytics in banking connects to retention and profitability</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-num">PROJECT 02</div>
-      <div class="project-domain">📈 Revenue Optimisation · ML</div>
-      <h3 class="project-title">Revenue Management — Cruise Company</h3>
-      <p class="project-desc">Applied the full ML pipeline to booking data — cleaning, EDA, predictive modelling, and clustering. Delivered revenue strategies using techniques that mirror financial risk modelling and customer segmentation in banking.</p>
-      <div class="project-tech">
-        <span class="tech-pill">Python</span><span class="tech-pill">Pandas</span><span class="tech-pill">Scikit-learn</span><span class="tech-pill">K-Means</span><span class="tech-pill">Regression</span><span class="tech-pill">Classification</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-num">PROJECT 03</div>
-      <div class="project-domain">🗄️ Data Architecture · ETL</div>
-      <h3 class="project-title">Hotel Chain Data Warehouse & BI</h3>
-      <p class="project-desc">Designed a star schema in MySQL Workbench, built ETL pipelines in Alteryx across multiple sources, and delivered BI visualisations surfacing occupancy trends and cross-sell insights — the same architecture used in core banking systems.</p>
-      <div class="project-tech">
-        <span class="tech-pill">MySQL</span><span class="tech-pill">Alteryx</span><span class="tech-pill">Star Schema</span><span class="tech-pill">ETL Design</span><span class="tech-pill">BI Visualisation</span>
-      </div>
-    </div>
-
-    <div class="project-card wide">
-      <div class="project-num">PROJECT 04</div>
-      <div class="project-domain">📊 Enterprise BI · Stakeholder Delivery</div>
-      <h3 class="project-title">SBS Learning Analytics Dashboard</h3>
-      <p class="project-desc">Designed dual Qlik dashboards for SBS's training platform — Trainer View (class performance, coaching insights) and Admin View (platform-wide KPIs). Delivered with real stakeholder requirements, UAT, and version control.</p>
-      <div class="project-tech">
-        <span class="tech-pill">Qlik Sense</span><span class="tech-pill">Dynamic Filtering</span><span class="tech-pill">KPI Design</span><span class="tech-pill">UAT</span><span class="tech-pill">Version Control</span>
-      </div>
-    </div>
-
-    <div class="project-card wide">
-      <div class="project-num">PROJECT 05</div>
-      <div class="project-domain">🧠 NLP · Text & Social Media Analytics</div>
-      <h3 class="project-title">Text & Social Media Analytics — SAS & Python</h3>
-      <p class="project-desc" style="max-width:700px;">Applied NLP techniques including topic modelling, sentiment analysis, and text clustering to social media datasets using SAS and Python. Extracted meaningful patterns from unstructured data — a skill increasingly critical in Fintech for analysing customer feedback, financial news, and market sentiment signals.</p>
-      <div class="project-tech">
-        <span class="tech-pill">SAS</span><span class="tech-pill">Python</span><span class="tech-pill">Topic Modelling</span><span class="tech-pill">Sentiment Analysis</span><span class="tech-pill">Text Clustering</span><span class="tech-pill">NLP</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-header">
-    <span class="section-num">03</span>
-    <h2 class="section-title">Experience</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="timeline">
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">Mar 2026 — Jun 2026</div>
-      <div class="timeline-role">Senior Administrative Officer</div>
-      <div class="timeline-company">Singapore University of Technology and Design (SUTD) · CDC Dept, Career Coach Team</div>
-      <ul class="timeline-points">
-        <li>Analyses attendance data for students in UPOP modules to monitor participation and flag non-attendance trends</li>
-        <li>Automates Excel-based administrative processes previously handled manually — improving data reliability and efficiency</li>
-        <li>Manages attendance records to support reporting and operational needs of the Career Coach team</li>
-        <li>Responds to student enquiries related to UPOP modules, attendance requirements, and scheduling</li>
-        <li>Provides coordination support to ensure smooth delivery of career development programmes</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">Sep 2025 — Feb 2026 · 6 Months</div>
-      <div class="timeline-role">BI Qlik Report Developer (Intern)</div>
-      <div class="timeline-company">Singapore University of Technology and Design (SUTD) · Career Development Centre</div>
-      <ul class="timeline-points">
-        <li>Designed and developed interactive Qlik dashboards for institutional planning and performance tracking</li>
-        <li>Collaborated with stakeholders to translate business needs into BI solutions — replicating the analyst workflow used in Fintech firms</li>
-        <li>Managed full delivery lifecycle: data exploration, ETL, UAT, documentation, and deployment</li>
-        <li>Applied data storytelling techniques to communicate insights to non-technical stakeholders</li>
-        <li>Conducted system integration testing and version control across dashboard iterations</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">Jan 2023 — Feb 2023</div>
-      <div class="timeline-role">Retail Assistant</div>
-      <div class="timeline-company">ZARA</div>
-      <ul class="timeline-points">
-        <li>Increased sales by 10% through active customer engagement and product recommendations</li>
-        <li>Managed stock replenishment with accurate inventory records under tight deadlines</li>
-        <li>Demonstrated teamwork and multitasking across a fast-paced retail environment</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- FINTECH READINESS -->
-<section style="background:var(--bg2);">
-  <div class="section-header">
-    <span class="section-num">04</span>
+    <span class="section-num">06</span>
     <h2 class="section-title">Fintech Readiness</h2>
     <div class="section-line"></div>
   </div>
@@ -467,40 +480,40 @@
     <div class="fintech-card">
       <span class="fintech-icon">🤖</span>
       <div class="fintech-card-title">AI & Machine Learning</div>
-      <div class="fintech-card-text">Built regression, classification, and k-means clustering models in Python and SAS. Understands how ML powers fraud detection, credit scoring, and banking personalisation. Applied via TP projects, CFI certifications, and the UWS × Citibank programme.</div>
+      <div class="fintech-card-text">I've built regression, classification, and k-means clustering models in Python and SAS across multiple projects. I understand how these techniques power fraud detection, credit scoring, and personalisation in banking — and I want to build those systems, not just understand them conceptually.</div>
     </div>
     <div class="fintech-card">
       <span class="fintech-icon">⛓️</span>
       <div class="fintech-card-title">Blockchain & Crypto</div>
-      <div class="fintech-card-text">CFI-certified in Blockchain and Cryptocurrency. Understands distributed ledger mechanics, smart contracts, and tokenisation. Contextualised to MAS's Project Guardian and Singapore's digital asset regulatory direction.</div>
+      <div class="fintech-card-text">CFI-certified in Blockchain and Cryptocurrency. I understand distributed ledger mechanics, smart contracts, and tokenisation — and I follow what MAS is doing with Project Guardian closely. Singapore's digital asset direction is one of the most interesting infrastructure stories in finance right now.</div>
     </div>
     <div class="fintech-card">
       <span class="fintech-icon">🔐</span>
       <div class="fintech-card-title">Cybersecurity Awareness</div>
-      <div class="fintech-card-text">Studied cybersecurity in the context of protecting financial systems through the UWS × Citibank programme. Aware of MAS guidelines on digital payment security and the Shared Responsibility Framework for banks.</div>
+      <div class="fintech-card-text">Through the UWS × Citibank programme I studied cybersecurity in the context of financial systems — understanding how fraud, data breaches, and regulatory exposure intersect. I'm aware of MAS guidelines and the Shared Responsibility Framework that governs how banks handle scams and digital payment security.</div>
     </div>
     <div class="fintech-card">
       <span class="fintech-icon">📊</span>
       <div class="fintech-card-title">Data Analytics in Finance</div>
-      <div class="fintech-card-text">Core strength. Delivered financial data analysis for OCBC Bank. Proficient in the full analytics pipeline — ETL to visualisation. CFI-certified in Using Data in Financial Analysis and Financial Forecasting with Analytics.</div>
+      <div class="fintech-card-text">This is my core strength. I've delivered financial data analysis for OCBC Bank, built BI systems used by real stakeholders, and I'm CFI-certified in Using Data in Financial Analysis and Financial Forecasting with Analytics. Data in finance is where I feel most at home.</div>
     </div>
     <div class="fintech-card">
       <span class="fintech-icon">💳</span>
       <div class="fintech-card-title">Financial Modelling</div>
-      <div class="fintech-card-text">CFI-certified in Financial Analysis & Modelling, 3-Statement Modelling, and FP&A. Understands how income statements, balance sheets, and cash flows interconnect dynamically — the backbone of Fintech valuation and forecasting tools.</div>
+      <div class="fintech-card-text">Through CFI, I learned how income statements, balance sheets, and cash flows connect dynamically in a 3-statement model — changing one assumption ripples through the entire structure. That systems-thinking approach clicked immediately because it's exactly how well-designed data pipelines work.</div>
     </div>
     <div class="fintech-card">
       <span class="fintech-icon">🌐</span>
       <div class="fintech-card-title">Singapore Fintech Ecosystem</div>
-      <div class="fintech-card-text">Follows MAS developments including PayNow cross-border expansion, CBDC trials, digital banking licensing, and the Shared Responsibility Framework. Understands the regulatory-innovation balance in Singapore's Fintech landscape.</div>
+      <div class="fintech-card-text">I follow MAS developments including PayNow's cross-border expansion, CBDC trials, digital banking licensing, and the Shared Responsibility Framework. Singapore sits at the intersection of regulatory rigour and innovation ambition — and that balance is what makes it such an interesting place to build a Fintech career.</div>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
+<!-- 8. CERTIFICATIONS -->
+<section id="certifications" style="background:var(--bg2);">
   <div class="section-header">
-    <span class="section-num">05</span>
+    <span class="section-num">07</span>
     <h2 class="section-title">Certifications</h2>
     <div class="section-line"></div>
   </div>
@@ -539,114 +552,11 @@
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section style="background:var(--bg2);">
-  <div class="section-header">
-    <span class="section-num">06</span>
-    <h2 class="section-title">Education</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2023 — 2026</div>
-      <div class="timeline-role">Diploma in Big Data & Analytics</div>
-      <div class="timeline-company">Temasek Polytechnic</div>
-      <ul class="timeline-points">
-        <li>Data Visualisation and Analytics</li>
-        <li>Database Application Development</li>
-        <li>Data Structures and Algorithms</li>
-        <li>Data Science Essentials</li>
-        <li>Data Warehousing and Business Intelligence</li>
-        <li>Data Engineering in Cloud</li>
-        <li>Data Management and Business Analytics</li>
-        <li>Machine Learning and Decision Making</li>
-        <li>Text and Social Media Analytics</li>
-      </ul>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2019 — 2022</div>
-      <div class="timeline-role">GCE 'O' Level Certificate</div>
-      <div class="timeline-company">Saint Anthony's Canossian Secondary School</div>
-    </div>
-  </div>
-</section>
+<footer>
+  <span>Swathi Muraliganesh · Data × Fintech</span>
+  <span>Singapore · 2026</span>
+  <span>Applying to SIT Applied Computing (Fintech)</span>
+</footer>
 
-
-<!-- UWS + CCA -->
-<section style="background:var(--bg);">
-  <div class="section-header">
-    <span class="section-num">07</span>
-    <h2 class="section-title">Activities & Achievements</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <!-- UWS Fintech Programme -->
-  <div style="margin-bottom:60px;">
-    <div style="font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--blue);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border-bright);">🏦 Industry Programme</div>
-    <div style="background:var(--bg2);border:1px solid var(--border-bright);padding:36px;position:relative;overflow:hidden;">
-      <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:var(--blue);"></div>
-      <div style="padding-left:20px;">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;margin-bottom:16px;">
-          <div>
-            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:var(--text);margin-bottom:6px;">STEM First FinTech Programme</div>
-            <div style="font-size:12px;color:#b8c8e8;letter-spacing:0.05em;">United Women Singapore (UWS) × Citibank</div>
-          </div>
-          <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);background:var(--blue-glow);border:1px solid var(--blue-dim);padding:6px 14px;white-space:nowrap;">2024 · 6 Months</div>
-        </div>
-        <p style="font-size:12px;color:#c8d4ee;line-height:1.8;margin-bottom:20px;">A competitive 6-month industry programme run in collaboration with Citibank mentors, covering the <strong style="color:var(--text);">ABCDE of Fintech</strong> — AI, Blockchain, Cybersecurity, Data Analytics, and E-commerce — delivered through a Design Thinking framework.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
-          <div style="padding:12px 16px;border:1px solid var(--border-bright);font-size:11px;color:#c8d4ee;">▸ Mentored by Citibank professionals on real Fintech challenges</div>
-          <div style="padding:12px 16px;border:1px solid var(--border-bright);font-size:11px;color:#c8d4ee;">▸ Applied Design Thinking to prototype financial solutions</div>
-          <div style="padding:12px 16px;border:1px solid var(--border-bright);font-size:11px;color:#c8d4ee;">▸ Balanced technical feasibility with regulatory compliance</div>
-          <div style="padding:12px 16px;border:1px solid var(--border-bright);font-size:11px;color:#c8d4ee;">▸ Presented solutions under time pressure to industry judges</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- CCA Achievements -->
-  <div style="font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;padding-bottom:10px;border-bottom:1px solid var(--border-bright);">🏆 CCA Record — Overall Grade: <span style="color:var(--cyan);">Excellent · 160 Points</span></div>
-
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border-bright);margin-bottom:32px;">
-
-    <div style="background:var(--bg2);padding:32px;">
-      <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">🏅 Achievements</div>
-      <div style="display:flex;flex-direction:column;gap:8px;">
-        <div style="padding:10px 14px;border:1px solid var(--border-bright);font-size:12px;color:#c8d4ee;">Call for Viz — Changi General Hospital <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">Data Visualisation Competition · 2025</span></div>
-        <div style="padding:10px 14px;border:1px solid var(--border-bright);font-size:12px;color:#c8d4ee;">NTU GAIP Insurance Case Competition <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2024</span></div>
-        <div style="padding:10px 14px;border:1px solid var(--border-bright);font-size:12px;color:#c8d4ee;">National Cashflow Competition <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2024</span></div>
-        <div style="padding:10px 14px;border:1px solid var(--blue-dim);background:var(--blue-glow);font-size:12px;color:var(--cyan);">UWS Fintech Programme <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2024</span></div>
-      </div>
-    </div>
-
-    <div style="background:var(--bg2);padding:32px;">
-      <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">📚 Enrichment</div>
-      <div style="display:flex;flex-direction:column;gap:8px;">
-        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">MP Pitching Workshop: Art of TECHx Presentation <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2025</span></div>
-        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">BDA Flex Week — Essential Tech-Skills for MP <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2025</span></div>
-        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">Flex Week Talk — Disability Awareness <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2024</span></div>
-        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">IIT x ASChill 2024 <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2024</span></div>
-        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">Resume &amp; Interview Workshop <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2024</span></div>
-        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">Jobstreet TechConnect 2023 <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2023</span></div>
-        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">TP Community Service Club AGM 2023 <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2023</span></div>
-        <div style="padding:10px 14px;border-left:2px solid var(--border-bright);font-size:12px;color:#c8d4ee;">TPOF 2023 Webinar <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">2023</span></div>
-      </div>
-    </div>
-
-    <div style="background:var(--bg2);padding:32px;">
-      <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;">🤝 Service</div>
-      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px;">
-        <div style="padding:10px 14px;border:1px solid var(--border-bright);font-size:12px;color:#c8d4ee;">Food From the Heart — Toy Buffet <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">Event Helper · 2024</span></div>
-        <div style="padding:10px 14px;border:1px solid var(--border-bright);font-size:12px;color:#c8d4ee;">CCN 2023 <span style="color:#8898bb;display:block;font-size:10px;margin-top:2px;">Event Official · 2023</span></div>
-      </div>
-      <div style="padding:20px;border:1px solid var(--blue-dim);background:var(--blue-glow);text-align:center;">
-        <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">Overall CCA Grade</div>
-        <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:32px;color:var(--cyan);">Excellent</div>
-        <div style="font-size:11px;color:#c8d4ee;margin-top:4px;">160 Total Points</div>
-      </div>
-    </div>
-
-  </div>
+</body>
+</html>
